@@ -8,8 +8,7 @@ const userRoutes = require("./routes/userRoutes");
 const authRoutes = require("./routes/authRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const errorHandler = require("./middleware/errorMiddleware");
-const rateLimit =
-  require("express-rate-limit");
+const rateLimit = require("express-rate-limit");
 
 const app = express();
 
@@ -20,7 +19,7 @@ app.use(morgan("dev"));
 // CORS
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", "https://mern-auth-frontend-pz61.onrender.com"],
     credentials: true,
   }),
 );
@@ -43,8 +42,7 @@ const limiter = rateLimit({
 
   message: {
     success: false,
-    message:
-      "Too many requests. Try again later.",
+    message: "Too many requests. Try again later.",
   },
 });
 app.use(limiter);
