@@ -34,7 +34,7 @@ Backend
 ## Live Demo
 
 Frontend:
-[Add Render URL]((https://mern-auth-frontend-pz61.onrender.com))]
+[Add Render URL](https://mern-auth-frontend-pz61.onrender.com)
 
 Backend:
 [Add Render URL](https://mern-auth-api-iius.onrender.com)]
