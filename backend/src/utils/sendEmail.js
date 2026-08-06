@@ -6,8 +6,6 @@ const sendEmail = async (
   message
 ) => {
   try {
-    console.log("Creating transporter...");
-
     const transporter =
       nodemailer.createTransport({
         service: "gmail",
@@ -17,7 +15,11 @@ const sendEmail = async (
         },
       });
 
-    console.log("Sending email to:", email);
+    console.log("Verifying transporter...");
+
+    await transporter.verify();
+
+    console.log("Transport verified!");
 
     const info =
       await transporter.sendMail({
@@ -27,10 +29,12 @@ const sendEmail = async (
         html: message,
       });
 
-    console.log("Email sent:", info.messageId);
+    console.log("Email sent!");
+    console.log(info);
 
   } catch (error) {
-    console.error("EMAIL ERROR:", error);
+    console.error("EMAIL ERROR:");
+    console.error(error);
     throw error;
   }
 };
