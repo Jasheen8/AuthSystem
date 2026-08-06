@@ -200,7 +200,7 @@ exports.forgotPassword = async (req, res) => {
     await user.save();
 
     const resetUrl =
-  `http://localhost:5173/reset-password/${resetToken}`;
+  `https://mern-auth-frontend-pz61.onrender.com/reset-password/${resetToken}`;
 
 const message = `
 <h2>Password Reset</h2>
