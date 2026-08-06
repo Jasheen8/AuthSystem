@@ -3,7 +3,7 @@ import { AuthContext } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import api from "../services/api";
 import toast from "react-hot-toast";
-
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import "../assets/auth.css";
 
@@ -11,6 +11,8 @@ export default function Login() {
   const navigate = useNavigate();
 
   const { setUser } = useContext(AuthContext);
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const [form, setForm] = useState({
     email: "",
@@ -66,13 +68,22 @@ export default function Login() {
             onChange={handleChange}
           />
 
-          <input
-            className="auth-input"
-            type="password"
-            name="password"
-            placeholder="Password"
-            onChange={handleChange}
-          />
+          <div className="password-wrapper">
+            <input
+              className="auth-input"
+              type={showPassword ? "text" : "password"}
+              name="password"
+              placeholder="Password"
+              onChange={handleChange}
+            />
+
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
+          </div>
 
           <button className="auth-btn" type="submit" disabled={loading}>
             {loading ? "Loading..." : "Login"}
