@@ -20,5 +20,5 @@ exports.registerValidation = [
   .matches(/[0-9]/)
   .withMessage("Password must contain one number")
   .matches(/[^A-Za-z0-9]/)
-  .withMessage("Password must contain one special character");
+  .withMessage("Password must contain one special character")
 ];
